@@ -1,6 +1,6 @@
 # UltraQt 🚀
 
-A **C++20** Qt application for ultramarathon training analysis. 
+A **C++20** Qt Quick application for ultramarathon training analysis. 
 
 ## 📌 Features
 - Qt-based GUI.
