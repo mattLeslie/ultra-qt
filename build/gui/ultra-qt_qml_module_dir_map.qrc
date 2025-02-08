@@ -1,0 +1,6 @@
+<RCC>
+  <qresource prefix="/">
+    <file alias="/qt/qml/gui">/home/matt/projects/qt-learning/ultra-qt/build/gui</file>
+
+  </qresource>
+</RCC>

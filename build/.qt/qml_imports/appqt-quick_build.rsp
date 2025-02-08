@@ -1,0 +1,9 @@
+-rootPath
+/home/matt/projects/qt-learning/ultra-qt
+-cmake-output
+-output-file
+/home/matt/projects/qt-learning/ultra-qt/build/.qt/qml_imports/appqt-quick_build.cmake
+-importPath
+/home/matt/projects/qt-learning/ultra-qt/build
+-importPath
+/home/matt/Qt/6.8.2/gcc_64/qml

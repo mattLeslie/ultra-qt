@@ -1,0 +1,5 @@
+--resource
+/home/matt/projects/qt-learning/ultra-qt/build/.qt/rcc/qmake_gui.qrc
+--resource
+/home/matt/projects/qt-learning/ultra-qt/build/.qt/rcc/ultra-qt_raw_qml_0.qrc
+/qt/qml/gui/src/gui/Main.qml

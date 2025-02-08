@@ -1,0 +1,8 @@
+module gui
+linktarget guiplugin
+optional plugin guiplugin
+classname guiPlugin
+typeinfo gui.qmltypes
+prefer :/qt/qml/gui/
+Main 1.0 src/Main.qml
+

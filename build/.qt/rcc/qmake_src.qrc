@@ -1,0 +1,6 @@
+<RCC>
+  <qresource prefix="/qt/qml/src">
+    <file alias="qmldir">/home/matt/projects/qt-learning/ultra-qt/build/src/qmldir</file>
+  </qresource>
+</RCC>
+

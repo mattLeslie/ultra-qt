@@ -1,0 +1,8 @@
+--bare
+-I
+/home/matt/Qt/6.8.2/gcc_64/qml
+--resource
+/home/matt/projects/qt-learning/ultra-qt/build/.qt/rcc/qmake_ultra-qt.qrc
+--resource
+/home/matt/projects/qt-learning/ultra-qt/build/.qt/rcc/appultra-qt_raw_qml_0.qrc
+/home/matt/projects/qt-learning/ultra-qt/src/Main.qml

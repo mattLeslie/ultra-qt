@@ -1,0 +1,12 @@
+[
+    {
+        "moduleFiles": [
+            {
+                "entries": [
+                ],
+                "filepath": "/home/matt/projects/qt-learning/ultra-qt/src/gui/Main.qml"
+            }
+        ],
+        "moduleId": "gui(ultra-qt)"
+    }
+]
