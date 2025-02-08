@@ -1,8 +1,0 @@
--I
-/home/matt/Qt/6.8.2/gcc_64/qml
---resource
-/home/matt/projects/qt-learning/ultra-qt/build/.qt/rcc/qmake_gui.qrc
---resource
-/home/matt/projects/qt-learning/ultra-qt/build/.qt/rcc/gui_raw_qml_0.qrc
---module
-gui

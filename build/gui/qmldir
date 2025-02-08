@@ -1,5 +1,0 @@
-module gui
-typeinfo ultra-qt.qmltypes
-prefer :/qt/qml/gui/
-Main 1.0 src/gui/Main.qml
-

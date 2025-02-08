@@ -1,6 +1,0 @@
-<RCC>
-  <qresource prefix="/qt/qml/gui/">
-    <file alias="src/Main.qml">/home/matt/projects/qt-learning/ultra-qt/src/Main.qml</file>
-  </qresource>
-</RCC>
-
