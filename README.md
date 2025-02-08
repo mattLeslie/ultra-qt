@@ -18,16 +18,20 @@ Ensure you have the following installed:
 ## 🚙 howdoyouturnthison
 
 ### Clone the Repository
-```git clone https://github.com/mattLeslie/ultra-qt```
-```cd ultra-qt```
+```
+git clone https://github.com/mattLeslie/ultra-qt
+cd ultra-qt
+```
 
 ### Configure and Build
-```mkdir build && cd build```
-```CXX=g++-11 cmake ..```
-```make```
+```
+mkdir build && cd build
+cmake ..
+make
+```
 
 ### Run
-```./app```
+```./ultra-qt```
 
 ## Tutorial
 TBD
