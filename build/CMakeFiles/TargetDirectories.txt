@@ -1,3 +1,0 @@
-/home/matt/projects/qt-learning/ultra-qt/build/CMakeFiles/app.dir
-/home/matt/projects/qt-learning/ultra-qt/build/CMakeFiles/edit_cache.dir
-/home/matt/projects/qt-learning/ultra-qt/build/CMakeFiles/rebuild_cache.dir
