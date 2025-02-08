@@ -1,4 +1,4 @@
-# UltraQt 🚀
+# UltraQt 🏃
 
 A **C++20** Qt application for ultramarathon training analysis. 
 
@@ -15,7 +15,7 @@ Ensure you have the following installed:
 - CMake 3.16+
 - Qt6
 
-## howdoyouturnthison
+## 🚙 howdoyouturnthison
 
 ### Clone the Repository
 ```git clone https://github.com/mattLeslie/ultra-qt```
