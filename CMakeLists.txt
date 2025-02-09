@@ -9,16 +9,35 @@ find_package(Qt6 REQUIRED COMPONENTS Quick)
 
 qt_standard_project_setup(REQUIRES 6.5)
 
+qt_policy(SET QTP0004 NEW)
+
 qt_add_executable(ultra-qt
     src/backend/main.cpp
 )
 
-qt_add_qml_module(ultra-qt
-    URI gui
+file(GLOB QML_COMPONENTS RELATIVE ${CMAKE_SOURCE_DIR} "src/gui/components/*.qml")
+file(GLOB QML_VIEWS RELATIVE ${CMAKE_SOURCE_DIR} "src/gui/views/*.qml")
+
+qt_add_qml_module(ultra-qt-components
+    URI components
     VERSION 1.0
+    OUTPUT_DIRECTORY ${CMAKE_CURRENT_BINARY_DIR}/components  # ✅ Set unique output directory
+    RESOURCE_PREFIX "/"
+    QML_FILES 
+        ${QML_COMPONENTS}
+)
+
+qt_add_qml_module(ultra-qt-views
+    URI views
+    VERSION 1.0
+    OUTPUT_DIRECTORY ${CMAKE_CURRENT_BINARY_DIR}/views  # ✅ Set unique output directory
+    RESOURCE_PREFIX "/"
     QML_FILES
         src/gui/Main.qml
+        ${QML_VIEWS}
 )
+
+target_link_libraries(ultra-qt PRIVATE ultra-qt-components ultra-qt-views)
 
 set_target_properties(ultra-qt PROPERTIES
     MACOSX_BUNDLE_BUNDLE_VERSION ${PROJECT_VERSION}
