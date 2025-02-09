@@ -3,6 +3,7 @@ import QtQuick
 import QtQuick.Layouts
 import QtQuick.Controls
 import QtQuick.Controls.Universal 2.12
+import QtQuick.Dialogs
 import views 1.0
  
 ApplicationWindow {
@@ -15,12 +16,15 @@ ApplicationWindow {
     width: 1280
     height: 960
 
+    signal filenamesUpdated()
+
+
     menuBar: MenuBar {
         Menu {
             title: qsTr("File")
             MenuItem {
-                text: qsTr("&Open")
-                onTriggered: console.log("Open action triggered");
+                text: qsTr("Add Activity Files")
+                onTriggered: fileDialog.open();
             }
             MenuItem {
                 text: qsTr("Exit")
@@ -40,11 +44,13 @@ ApplicationWindow {
             spacing: 2
 
             FileStructureView {
+                id: file_structure
                 Layout.minimumWidth: 150
                 Layout.preferredWidth: 250
                 Layout.maximumWidth: 300
                 Layout.fillWidth: true
                 Layout.fillHeight: true
+
             }
 
             MapView{
@@ -61,6 +67,16 @@ ApplicationWindow {
             Layout.minimumHeight: 200
             Layout.fillWidth: true
             Layout.fillHeight: true
+        }
+    }
+
+    FileDialog {
+        id: fileDialog
+        fileMode: FileDialog.OpenFiles
+        nameFilters: ["Fit files (*.fit)", "Fit file archives (*.fit.gz)", "Gpx files (*.gpx)"]
+        onAccepted: {
+            file_structure.files = selectedFiles; 
+            file_structure.loadFileLabels();
         }
     }
 }

@@ -8,8 +8,7 @@ Item {
     height: 50
     Layout.fillWidth: true 
 
-
-    property string title: "Default Text"
+    property string title: null
 
     Text {
         text: "File: "
@@ -21,7 +20,7 @@ Item {
         height: parent.height
         color: "gray"
         Text {
-            text: "Filename"
+            text: title
             anchors.centerIn: parent
         }
     }
