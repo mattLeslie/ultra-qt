@@ -22,8 +22,8 @@ qt_policy(SET QTP0004 NEW)
 
 # target_include_directories(ultra-qt PRIVATE src/backend)
 
-file(GLOB QML_COMPONENTS RELATIVE ${CMAKE_SOURCE_DIR} "gui/components/*.qml")
-file(GLOB QML_VIEWS RELATIVE ${CMAKE_SOURCE_DIR} "gui/views/*.qml")
+file(GLOB QML_COMPONENTS RELATIVE ${CMAKE_SOURCE_DIR} "src/gui/components/*.qml")
+file(GLOB QML_VIEWS RELATIVE ${CMAKE_SOURCE_DIR} "src/gui/views/*.qml")
 
 
 qt_add_qml_module(ultra-qt-components
@@ -41,13 +41,14 @@ qt_add_qml_module(ultra-qt-views
     OUTPUT_DIRECTORY ${CMAKE_CURRENT_BINARY_DIR}/views  # ✅ Set unique output directory
     RESOURCE_PREFIX "/"
     QML_FILES
-        gui/Main.qml
+        src/Main.qml
         ${QML_VIEWS}
 )
-add_subdirectory(backend)
+
+add_subdirectory(src/backend)
 
 qt_add_executable(ultra-qt
-    backend/main.cpp
+    src/main.cpp
 )
 
 target_link_libraries(ultra-qt PUBLIC Qt6::Quick Qt6::Core Qt6::Qml backendplugin)

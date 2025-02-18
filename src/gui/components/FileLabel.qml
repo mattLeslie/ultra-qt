@@ -8,7 +8,7 @@ Item {
     height: 50
     Layout.fillWidth: true 
 
-    property string title: null
+    property string title: ''
 
     Text {
         text: "File: "
