@@ -1,22 +1,30 @@
 cmake_minimum_required(VERSION 3.16)
 project(UltraQt VERSION 0.1 LANGUAGES CXX)
 
+set(CMAKE_AUTOMOC ON)
+set(CMAKE_AUTOUIC ON)
+set(CMAKE_AUTORCC ON)
+
+set(CMAKE_AUTOUIC_SEARCH_PATHS ui/)
+set(AUTOMOC_PATH_PREFIX ON)
+
 set(CMAKE_CXX_STANDARD 20)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
+# Set the Qt installation path
 list(APPEND CMAKE_PREFIX_PATH "/home/matt/Qt/6.8.2/gcc_64")
-find_package(Qt6 REQUIRED COMPONENTS Quick)
+
+# Find required Qt components
+find_package(Qt6 REQUIRED COMPONENTS Quick Core Qml)
 
 qt_standard_project_setup(REQUIRES 6.5)
-
 qt_policy(SET QTP0004 NEW)
 
-qt_add_executable(ultra-qt
-    src/backend/main.cpp
-)
+# target_include_directories(ultra-qt PRIVATE src/backend)
 
-file(GLOB QML_COMPONENTS RELATIVE ${CMAKE_SOURCE_DIR} "src/gui/components/*.qml")
-file(GLOB QML_VIEWS RELATIVE ${CMAKE_SOURCE_DIR} "src/gui/views/*.qml")
+file(GLOB QML_COMPONENTS RELATIVE ${CMAKE_SOURCE_DIR} "gui/components/*.qml")
+file(GLOB QML_VIEWS RELATIVE ${CMAKE_SOURCE_DIR} "gui/views/*.qml")
+
 
 qt_add_qml_module(ultra-qt-components
     URI components
@@ -33,23 +41,21 @@ qt_add_qml_module(ultra-qt-views
     OUTPUT_DIRECTORY ${CMAKE_CURRENT_BINARY_DIR}/views  # ✅ Set unique output directory
     RESOURCE_PREFIX "/"
     QML_FILES
-        src/gui/Main.qml
+        gui/Main.qml
         ${QML_VIEWS}
 )
+add_subdirectory(backend)
+
+qt_add_executable(ultra-qt
+    backend/main.cpp
+)
+
+target_link_libraries(ultra-qt PUBLIC Qt6::Quick Qt6::Core Qt6::Qml backendplugin)
 
 target_link_libraries(ultra-qt PRIVATE ultra-qt-components ultra-qt-views)
 
-set_target_properties(ultra-qt PROPERTIES
-    MACOSX_BUNDLE_BUNDLE_VERSION ${PROJECT_VERSION}
-    MACOSX_BUNDLE_SHORT_VERSION_STRING ${PROJECT_VERSION_MAJOR}.${PROJECT_VERSION_MINOR}
-    MACOSX_BUNDLE TRUE
-    WIN32_EXECUTABLE TRUE
-)
 
-target_link_libraries(ultra-qt
-    PRIVATE Qt6::Quick
-)
-
+# Installation setup
 include(GNUInstallDirs)
 install(TARGETS ultra-qt
     BUNDLE DESTINATION .
