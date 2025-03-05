@@ -76,7 +76,7 @@ ApplicationWindow {
         nameFilters: ["Fit files (*.fit)", "Fit file archives (*.fit.gz)", "Gpx files (*.gpx)"]
         onAccepted: {
             file_structure.files = selectedFiles; 
-            file_structure.loadFileLabels();
+            file_structure.loadFiles();
         }
     }
 }

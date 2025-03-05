@@ -3,6 +3,8 @@ import QtQuick.Layouts
 import QtPositioning
 import components 1.0
 
+import parsing
+
 ColumnLayout {
 
     id: file_structure_container
@@ -11,27 +13,31 @@ ColumnLayout {
     spacing: 5
     Layout.alignment: Qt.AlignTop
 
-
-    // Accepts a list of one or more files 
-    function loadFiles(){
-
+    FileParser {
+        id: parser
     }
 
-    function loadFileLabels() {
-        for(let i = 0; i < files.length; i++){
-            // Extract filename and extension
-            let fileName = new URL(files[i]).pathname.split('/').pop();
-            // Create Qt component from template
-            var component = Qt.createComponent("qrc:/components/src/gui/components/FileLabel.qml");
-            if (component.status === Component.Error) {
-                console.error("Error:", component.errorString());
-            }
+    function loadFiles() {
+        // for(let i = 0; i < files.length; i++){
+        //     // Extract filename and extension
+        //     let file = files[i];
 
-            if (component.status == Component.Ready) {
-                component.createObject(file_structure_container, {
-                    "title": fileName
-                });
-            }
-        }
+        //     let fileName = new URL(file).pathname.split('/').pop();
+
+        //     console.log(typeof file)
+        //     // Create Qt component from template
+        //     var fileComponent = Qt.createComponent("qrc:/components/src/gui/components/File.qml");
+        //     if (fileComponent.status === Component.Error) {
+        //         console.error("Error:", file.errorString());
+        //     }
+
+        //     if (fileComponent.status == Component.Ready) {
+        //         fileComponent.createObject(file_structure_container, {
+        //             "title": fileName
+        //         });
+        //     }
+        // }
+    
+        parser.parseFiles(files)
     }
 }

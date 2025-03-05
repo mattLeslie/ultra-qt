@@ -3,15 +3,11 @@ import QtPositioning
 import QtLocation
 import QtQuick.Controls
 
-import backend
+import parsing
 
 Item {
     width: 400
     height: 300
-
-    Parser {
-        id: parser
-    }
 
     Button {
         text: "Ping"

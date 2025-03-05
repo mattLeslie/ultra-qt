@@ -1,13 +1,13 @@
-project(backend VERSION 0.1 LANGUAGES CXX)
+project(parsing VERSION 0.1 LANGUAGES CXX)
 
 qt_add_library(${PROJECT_NAME} STATIC)
 qt_add_qml_module(${PROJECT_NAME}
-    URI backend
+    URI parsing
     VERSION 1.0
     RESOURCE_PREFIX "/"
     SOURCES
-        parser.h
-        parser.cpp
+        FileParser.h
+        FileParser.cpp
 )
 
 target_link_libraries(${PROJECT_NAME} PUBLIC
@@ -17,6 +17,9 @@ target_link_libraries(${PROJECT_NAME} PUBLIC
     Qt6::Quick
 )
 
+target_link_libraries(${PROJECT_NAME} PRIVATE
+    ZLIB::ZLIB
+)
 target_include_directories(${PROJECT_NAME}
     PUBLIC
         .
